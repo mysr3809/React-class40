@@ -12,8 +12,8 @@ function App() {
     setSelectedBtn(categoryName);
   }
 
-  const filterProduct = () => {
-    setFiltered(allProduct.filter(product => product.category === selectedBtn))
+  const filterProduct = (category) => {
+    setFiltered(allProduct.filter(product => product.category === category))
   }
   return (
     <div>

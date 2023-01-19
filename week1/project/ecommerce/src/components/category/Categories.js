@@ -9,7 +9,7 @@ const Categories = ({ handleClick, filterProduct }) => {
       {allCategories.map((category, index) => {
         return <button key={index} onClick={() => {
           handleClick(category.slice(6));
-          filterProduct();
+          filterProduct(category.slice(6));
         }}>{category}</button>
       })}
 
