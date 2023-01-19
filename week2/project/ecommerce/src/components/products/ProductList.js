@@ -34,19 +34,15 @@ const ProductList = () => {
     getProducts()
   }, []);
 
-  useEffect(() => {
-    if (selectedBtn) {
-      setFiltered(allProduct.filter(product => product.category === selectedBtn))
-    }
-  }, [selectedBtn]
-  )
-
-  console.log('filtered', filtered)
+  const filterProduct = (category) => {
+    const filter = allProduct.filter(product => product.category === category)
+    setFiltered(filter)
+  }
 
   return (
     <div className='homePage'>
       <h1>Products</h1>
-      {!isLoading && <Categories handleClick={handleClick} />}
+      {!isLoading && <Categories handleClick={handleClick} filterProduct={filterProduct} />}
       <div className='productList'>
         {isLoading ? "Loading..." : filtered.map((product, index) => {
           return <Product product={product} key={index} />

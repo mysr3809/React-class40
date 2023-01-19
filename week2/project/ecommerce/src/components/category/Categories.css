@@ -12,3 +12,9 @@
   background-color: #bdbdc1;
   cursor: pointer;
 }
+
+
+.category button:focus{
+  background-color: #616161;
+ 
+}

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Categories.css'
 
-const Categories = ({ handleClick }) => {
+const Categories = ({ handleClick, filterProduct }) => {
   const [categories, setCategories] = useState([]);
   const getCategories = async () => {
-    const response = await fetch(`https://fakestoreapi.com/products/categories`);
-    const data = await response.json();
-    setCategories(data);
+    try {
+      const response = await fetch(`https://fakestoreapi.com/products/categories`);
+      const data = await response.json();
+      setCategories(data);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   useEffect(() => {
@@ -17,7 +21,10 @@ const Categories = ({ handleClick }) => {
   return (
     <div className='category'>
       {categories.map((category, index) => {
-        return <button key={index} onClick={() => { handleClick(category) }}>{category}</button>
+        return <button key={index} onClick={() => {
+          handleClick(category);
+          filterProduct(category)
+        }}>{category}</button>
       })}
     </div>
   )
