@@ -12,10 +12,12 @@ const Categories = ({ handleClick }) => {
   useEffect(() => {
     getCategories()
   }, []);
+
+
   return (
     <div className='category'>
       {categories.map((category, index) => {
-        return <button key={index} onClick={handleClick}>{category}</button>
+        return <button key={index} onClick={() => { handleClick(category) }}>{category}</button>
       })}
     </div>
   )

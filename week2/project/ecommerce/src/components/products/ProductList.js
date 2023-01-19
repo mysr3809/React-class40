@@ -9,10 +9,11 @@ const ProductList = () => {
   const [filtered, setFiltered] = useState(allProduct);
   const [selectedBtn, setSelectedBtn] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const handleClick = (e) => {
-    setSelectedBtn(e.target.innerText);
-    console.log("selected", selectedBtn);
+
+  const handleClick = (category) => {
+    setSelectedBtn(category)
   }
+
   const getProducts = async () => {
     try {
       const response = await fetch(`https://fakestoreapi.com/products`);
@@ -20,7 +21,6 @@ const ProductList = () => {
       setAllProduct(data);
       console.log("all", data);
       setTimeout(() => {
-        setAllProduct(data);
         setFiltered(data);
         setIsLoading(false);
       }, 1000);
@@ -49,7 +49,7 @@ const ProductList = () => {
       {!isLoading && <Categories handleClick={handleClick} />}
       <div className='productList'>
         {isLoading ? "Loading..." : filtered.map((product, index) => {
-          return <Product product={product} key={index} filtered={filtered} />
+          return <Product product={product} key={index} />
         })}
       </div>
     </div>
