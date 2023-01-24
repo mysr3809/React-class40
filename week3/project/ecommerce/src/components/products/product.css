@@ -1,6 +1,7 @@
 .product{
  margin: auto;
  position: relative;
+ text-align: center;
 }
 
 .product img.productImg{
