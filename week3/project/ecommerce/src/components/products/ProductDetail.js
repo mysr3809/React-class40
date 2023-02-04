@@ -15,7 +15,7 @@ const ProductDetail = () => {
       setProductDetail(data);
       console.log("all", data);
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
   };
   useEffect(() => {

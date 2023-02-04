@@ -9,7 +9,7 @@ const Categories = ({ handleClick, filterProduct }) => {
       const data = await response.json();
       setCategories(data);
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
   };
 

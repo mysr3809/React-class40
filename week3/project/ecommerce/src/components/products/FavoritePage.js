@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Buttons from './Buttons'
 import Product from './Product';
 import "./favoritePage.css"

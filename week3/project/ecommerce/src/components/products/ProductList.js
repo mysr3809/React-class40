@@ -20,13 +20,12 @@ const ProductList = () => {
       const response = await fetch(`https://fakestoreapi.com/products`);
       const data = await response.json();
       setAllProduct(data);
-      console.log("all", data);
       setTimeout(() => {
         setFiltered(data);
         setIsLoading(false);
       }, 1000);
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
 
   };
